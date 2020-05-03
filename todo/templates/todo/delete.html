@@ -1,0 +1,12 @@
+{% extends "todo/base.html" %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <h3>Are you sure you want to delete this todo?</h3>
+    <hr>
+    <input type="submit" value="Yes i do" class="btn btn-danger mr-3">
+    
+    <a href="{% url 'index' %}" class="btn btn-success ">No take me back</a>
+</form>
+{% endblock content %}
+

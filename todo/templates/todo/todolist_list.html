@@ -1,0 +1,30 @@
+{% extends "todo/base.html" %}
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a href="{% url 'create' %}" class='pull-right nav-link active'>Add new todo</a>
+        </li>
+    
+      </ul>
+    </div>
+    <div class="card-body">
+        {% for todo in todo %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{todo.todoitem}}</h5>
+              <p class="card-text">Done: {{todo.done}}</p>
+              <a href="{% url 'update' todo.id %}"><button class="btn btn-success">update</button></a>
+              <a href="{% url 'delete' todo.id %}"><button class="btn btn-danger">delete</button></a>
+            </div>
+          </div>
+        <hr>
+        {% endfor %}
+    </div>
+  </div>
+
+
+
+
+{% endblock content %}

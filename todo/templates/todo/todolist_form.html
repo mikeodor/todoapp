@@ -1,0 +1,22 @@
+{% extends "todo/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a href="{% url 'create' %}" class='pull-right nav-link active'>Create new todo*</a>
+        </li>
+    
+      </ul>
+    </div>
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="ADD" class="btn btn-success mr-2">
+            <a href="{% url 'index' %}" class="btn btn-primary" >Back</a>
+        </form>
+    </div>
+  </div>
+{% endblock  %}
